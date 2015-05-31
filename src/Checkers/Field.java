@@ -17,4 +17,15 @@ public class Field {
     {
         return new FieldPosition(row, column);
     }
+
+    public void clear() {
+        piece.field = null;
+        piece = null;
+    }
+
+    public Field occupyBy(Piece pieceToMove) {
+        this.piece = pieceToMove;
+        pieceToMove.field = this;
+        return this;
+    }
 }

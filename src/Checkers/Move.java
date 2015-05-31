@@ -12,6 +12,9 @@ public class Move {
     public Boolean isCapture;
 
     public Move(FieldPosition source, FieldPosition target) {
+        if (source == null || target == null) {
+            throw new IllegalArgumentException();
+        }
         this.source = source;
         this.target = new ArrayList<>();
         this.target.add(target);
@@ -19,6 +22,9 @@ public class Move {
     }
 
     public Move(FieldPosition source, List<FieldPosition> target) {
+        if (source == null || target == null || target.size() == 0) {
+            throw new IllegalArgumentException();
+        }
         this.source = source;
         this.target = new ArrayList<>();
         for(FieldPosition targetField : target)

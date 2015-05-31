@@ -162,19 +162,36 @@ public class Board {
             targetField.piece = pieceToMove;
             pieceToMove.field = targetField;
         } else {
-            for (FieldPosition fieldPosition : move.target) {
-                pieceToMove = startField.piece;
-                startField.piece = null;
 
+            for (FieldPosition fieldPosition : move.target) {
                 Field targetField = newBoard.board[fieldPosition.row][fieldPosition.column];
-                targetField.piece = pieceToMove;
-                pieceToMove.field = targetField;
+
+                int rowOffset = (fieldPosition.row - startField.row) / 2;
+                int colOffset = (fieldPosition.column - startField.column) / 2;
+
+                Field enemyField = newBoard.select(startField.row + rowOffset, startField.column + colOffset);
+
+                assert (enemyField.piece.isLight != startField.piece.isLight);
+
+                newBoard.removePiece(enemyField.piece);
 
                 startField = newBoard.board[fieldPosition.row][fieldPosition.column];
             }
+
+            //start field is now stop field XD
+            startField.occupyBy(pieceToMove);
         }
 
         return newBoard;
+    }
+
+    private void removePiece(Piece piece) {
+        if (piece.isLight) {
+            this.lightPieces.remove(piece);
+        } else {
+            this.darkPieces.remove(piece);
+        }
+        piece.field.clear();
     }
 
     public void print() {
