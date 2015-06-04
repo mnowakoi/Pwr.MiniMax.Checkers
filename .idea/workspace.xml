@@ -26,91 +26,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MinMax.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checkers/MinMax.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="975">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Checkers/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9493671" vertical-offset="0" max-vertical-offset="375">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MinMaxAlfaBeta.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MinMaxAlfaBeta.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Checkers/MinMaxAlfaBeta.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state vertical-scroll-proportion="12.551724" vertical-offset="206" max-vertical-offset="1485">
+              <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Man.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checkers/Man.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
-              <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChildStateGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checkers/ChildStateGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="720">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Checkers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checkers/Checkers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="930">
-              <caret line="146" column="99" selection-start-line="146" selection-start-column="99" selection-end-line="146" selection-end-column="99" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#minMaxTwoComputers#0;class#Checkers#0" expanded="false" />
-                <element signature="method#minMaxAlfaBetaTwoComputers#0;class#Checkers#0" expanded="false" />
-                <element signature="method#minMaxOneComputer#0;class#Checkers#0" expanded="false" />
-                <element signature="method#minMaxAlfaBetaOneComputer#0;class#Checkers#0" expanded="false" />
-                <element signature="method#minMaxTwoComputersMode#0;class#Checkers#0" expanded="false" />
-                <element signature="method#minMaxAlfaBetaTwoComputersMode#0;class#Checkers#0" expanded="false" />
-                <element signature="method#minMaxOnePlayer#0;class#Checkers#0" expanded="false" />
-                <element signature="method#minMaxAlfaBetaOnePlayer#0;class#Checkers#0" expanded="false" />
-                <element signature="method#printStatus#0;class#Checkers#0" expanded="false" />
-                <element signature="method#getGameStatus#0;class#Checkers#0" expanded="false" />
-                <element signature="class#GameStatus#0;class#Checkers#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Move.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checkers/Move.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="method#Move#0;class#Move#0" expanded="false" />
-                <element signature="method#Move#2;class#Move#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -134,11 +56,11 @@
         <option value="$PROJECT_DIR$/src/Checkers/MinMax.java" />
         <option value="$PROJECT_DIR$/src/Checkers/Move.java" />
         <option value="$PROJECT_DIR$/src/Checkers/Board.java" />
-        <option value="$PROJECT_DIR$/src/Checkers/Evaluator.java" />
         <option value="$PROJECT_DIR$/src/Checkers/IEvaluator.java" />
-        <option value="$PROJECT_DIR$/src/Checkers/Queen.java" />
-        <option value="$PROJECT_DIR$/src/Checkers/MinMaxAlfaBeta.java" />
         <option value="$PROJECT_DIR$/src/Checkers/Checkers.java" />
+        <option value="$PROJECT_DIR$/src/Checkers/MinMaxAlfaBeta.java" />
+        <option value="$PROJECT_DIR$/src/Checkers/Queen.java" />
+        <option value="$PROJECT_DIR$/src/Checkers/Evaluator.java" />
         <option value="$PROJECT_DIR$/src/Checkers/Main.java" />
       </list>
     </option>
@@ -596,12 +518,12 @@
       <workItem from="1432559827414" duration="2549000" />
       <workItem from="1433068144452" duration="19919000" />
       <workItem from="1433148396622" duration="3264000" />
-      <workItem from="1433182702792" duration="46038000" />
+      <workItem from="1433182702792" duration="54625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82824000" />
+    <option name="totallyTimeSpent" value="91411000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -639,7 +561,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46781117" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23931624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.71781117" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.9409871" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -732,7 +654,7 @@
           <properties uncaughtOnly="true" />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="180" />
+      <option name="time" value="188" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -784,7 +706,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2643" max-vertical-offset="3585">
           <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#Board#0;class#Board#0" expanded="false" />
             <element signature="method#Board#1;class#Board#0" expanded="false" />
             <element signature="method#captureUpperRight#0;class#Board#0" expanded="false" />
@@ -841,8 +763,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="390">
           <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding>
-            <element signature="e#357#358#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#357#358#0" expanded="false" />
+            <element signature="e#391#392#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,7 +802,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2565">
           <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#Board#0;class#Board#0" expanded="false" />
             <element signature="method#Board#1;class#Board#0" expanded="false" />
             <element signature="method#captureUpperRight#0;class#Board#0" expanded="false" />
@@ -986,40 +908,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkers/Evaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08122744" vertical-offset="60" max-vertical-offset="750">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checkers/IEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10830325" vertical-offset="0" max-vertical-offset="554">
           <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkers/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33212996" vertical-offset="581" max-vertical-offset="1260">
-          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Board#0;class#Board#0" expanded="false" />
-            <element signature="method#Board#1;class#Board#0" expanded="false" />
-            <element signature="method#captureUpperRight#0;class#Board#0" expanded="false" />
-            <element signature="method#captureLowerLeft#0;class#Board#0" expanded="false" />
-            <element signature="method#captureLowerRight#0;class#Board#0" expanded="false" />
-            <element signature="method#selectAboveRight#0;class#Board#0" expanded="false" />
-            <element signature="method#selectAboveLeft#0;class#Board#0" expanded="false" />
-            <element signature="method#makeMove#0;class#Board#0" expanded="false" />
-            <element signature="method#print#0;class#Board#0" expanded="false" />
-            <element signature="method#getSymbolForField#0;class#Board#0" expanded="false" />
-            <element signature="method#removePiece#0;class#Board#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1046,47 +939,22 @@
         <state vertical-scroll-proportion="0.53257793" vertical-offset="67" max-vertical-offset="420">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#391#392#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkers/Move.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="method#Move#0;class#Move#0" expanded="false" />
-            <element signature="method#Move#2;class#Move#0" expanded="false" />
+            <element signature="e#391#392#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checkers/Man.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
-          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.33783785" vertical-offset="0" max-vertical-offset="1470">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkers/Queen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.96" vertical-offset="0" max-vertical-offset="2220">
-          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addNextMoveUpperLeft#0;class#Queen#0" expanded="false" />
-            <element signature="method#addNextMoveUpperRight#0;class#Queen#0" expanded="false" />
-            <element signature="method#addNextMoveLowerLeft#0;class#Queen#0" expanded="false" />
-            <element signature="method#addNextMoveLowerRight#0;class#Queen#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checkers/ChildStateGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="720">
+        <state vertical-scroll-proportion="0.2792793" vertical-offset="54" max-vertical-offset="720">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1094,20 +962,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkers/MinMaxAlfaBeta.java">
+    <entry file="file://$PROJECT_DIR$/src/Checkers/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="1215">
+          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+          <folding>
+            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#Board#1;class#Board#0" expanded="false" />
+            <element signature="method#captureUpperRight#0;class#Board#0" expanded="false" />
+            <element signature="method#captureUpperLeft#0;class#Board#0" expanded="false" />
+            <element signature="method#captureLowerLeft#0;class#Board#0" expanded="false" />
+            <element signature="method#captureLowerRight#0;class#Board#0" expanded="false" />
+            <element signature="method#selectAboveRight#0;class#Board#0" expanded="false" />
+            <element signature="method#selectAboveLeft#0;class#Board#0" expanded="false" />
+            <element signature="method#makeMove#0;class#Board#0" expanded="false" />
+            <element signature="method#print#0;class#Board#0" expanded="false" />
+            <element signature="method#getSymbolForField#0;class#Board#0" expanded="false" />
+            <element signature="method#removePiece#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checkers/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checkers/Queen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="474" max-vertical-offset="2610">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#addNextMoveUpperLeft#0;class#Queen#0" expanded="false" />
+            <element signature="method#addNextMoveUpperRight#0;class#Queen#0" expanded="false" />
+            <element signature="method#addNextMoveLowerLeft#0;class#Queen#0" expanded="false" />
+            <element signature="method#addNextMoveLowerRight#0;class#Queen#0" expanded="false" />
+            <element signature="method#tryCapture#0;class#Queen#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checkers/Checkers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="930">
-          <caret line="146" column="99" selection-start-line="146" selection-start-column="99" selection-end-line="146" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="930">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#minMaxTwoComputers#0;class#Checkers#0" expanded="false" />
@@ -1125,19 +1027,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkers/MinMax.java">
+    <entry file="file://$PROJECT_DIR$/src/Checkers/Evaluator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="975">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="750">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkers/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Checkers/MinMax.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9493671" vertical-offset="0" max-vertical-offset="375">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="273" max-vertical-offset="975">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checkers/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8385093" vertical-offset="0" max-vertical-offset="585">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <element signature="method#Move#0;class#Move#0" expanded="false" />
+            <element signature="method#Move#2;class#Move#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checkers/MinMaxAlfaBeta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="12.551724" vertical-offset="206" max-vertical-offset="1485">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

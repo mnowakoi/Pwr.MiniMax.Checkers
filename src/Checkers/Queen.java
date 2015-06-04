@@ -29,19 +29,42 @@ public class Queen extends Piece {
         List<Move> captures = new ArrayList<>();
 
         for (List<FieldPosition> trace : traces) {
-            FieldPosition lastfield = trace.get(trace.size() - 1);
-            Field currentField = board.select(lastfield.row, lastfield.column);
-            List<List<FieldPosition>> currentTraces = addNextCapture(board, new ArrayList<>(), board.select(currentField.row, currentField.column));
-
             if (trace.isEmpty()) {
                 continue;
             }
+
+            boolean isDirectionCapture = false;
+
+            FieldPosition lastfield = trace.get(trace.size() - 1);
+            Field currentField = board.select(lastfield.row, lastfield.column);
+
+            if (trace.size() > 1)
+            {
+                FieldPosition prevField = trace.get(trace.size() - 1);
+
+                int rowOffset = - prevField.row + lastfield.row;
+                int colOffset = - prevField.column + lastfield.row;
+
+                Field firstCapture = tryCapture(lastfield, rowOffset, colOffset, board);
+
+                if (firstCapture == null)
+                {
+                    continue;
+                }
+                else
+                {
+                    currentField = firstCapture;
+                    isDirectionCapture = true;
+                }
+            }
+
+            List<List<FieldPosition>> currentTraces = addNextCapture(board, new ArrayList<>(), currentField);
 
             FieldPosition source = trace.get(0);
             trace.remove(0);
 
             for (List<FieldPosition> currentTrace : currentTraces) {
-                if (currentTrace.size() < 2)
+                if (currentTrace.size() < 2 && !isDirectionCapture)
                     continue;
 
                 currentTrace.remove(0);
@@ -171,6 +194,21 @@ public class Queen extends Piece {
             field = board.selectLowerRight(field.getPosition());
         }
         return trace;
+    }
+
+    private Field tryCapture(FieldPosition lastfield, int rowOffset, int colOffset, Board board)
+    {
+        Field fieldToCapture = board.select(lastfield.row + rowOffset, lastfield.column + colOffset);
+        if (fieldToCapture != null) {
+            Piece capturePiece = fieldToCapture.piece;
+            if (capturePiece != null && capturePiece.isLight != this.isLight) {
+                Field f = board.select(lastfield.row + rowOffset * 2, lastfield.column + colOffset * 2);
+
+                if (f != null && f.isEmpty())
+                    return f;
+            }
+        }
+        return null;
     }
 
     @Override
