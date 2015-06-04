@@ -43,8 +43,10 @@ public class MinMaxAlfaBeta {
         best.move = movesAndStatesList.get(0).move;
         movesAndStatesList.remove(0);
 
-        if(counter % 2 == 0)
+        if(counter % 2 == 1)
         {
+            beta = best.value;
+
             for (MoveAndState moveAndState : movesAndStatesList)
             {
                 EvaluatedMove betaCand = findBestMoveMinMax(moveAndState.state, counter + 1, alfa, beta, evaluateLight);
@@ -60,6 +62,8 @@ public class MinMaxAlfaBeta {
         }
         else
         {
+            alfa = best.value;
+
             for (MoveAndState moveAndState : movesAndStatesList)
             {
                 EvaluatedMove alfaCand = findBestMoveMinMax(moveAndState.state, counter + 1, alfa, beta, evaluateLight);
