@@ -46,10 +46,4 @@ public class Move {
         this.deep = 0;
         this.isCapture = true;
     }
-
-    public Move getCopy()
-    {
-        FieldPosition newSource = new FieldPosition(this.source.row, this.source.column);
-        return new Move(newSource, this.target, this.deep);
-    }
 }

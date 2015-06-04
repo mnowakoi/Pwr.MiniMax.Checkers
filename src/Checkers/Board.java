@@ -205,14 +205,19 @@ public class Board {
             for (FieldPosition fieldPosition : move.target) {
 
                 int rowDiff = fieldPosition.row - startField.row;
-                if(abs(rowDiff) > 1)
+                int colDiff = fieldPosition.column - startField.column;
+
+                if(abs(rowDiff) > 2 || abs(colDiff) > 2 )
+                    throw new IllegalArgumentException();
+
+                if(abs(rowDiff) == 2 && abs(colDiff) == 2)
                 {
-                    int rowOffset = (rowDiff) / 2;
-                    int colOffset = (fieldPosition.column - startField.column) / 2;
+                    int rowOffset = rowDiff / 2;
+                    int colOffset = colDiff / 2;
 
                     Field enemyField = newBoard.select(startField.row + rowOffset, startField.column + colOffset);
 
-                    assert (enemyField.piece.isLight != pieceToMove.isLight);
+                    if (enemyField.piece.isLight == pieceToMove.isLight)  throw new IllegalArgumentException();
 
                     newBoard.removePiece(enemyField.piece);
                 }
@@ -241,15 +246,6 @@ public class Board {
         return newBoard;
     }
 
-    private void removePiece(Piece piece) {
-        if (piece.isLight) {
-            this.lightPieces.remove(piece);
-        } else {
-            this.darkPieces.remove(piece);
-        }
-        piece.field.clear();
-    }
-
     public void print() {
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
@@ -270,8 +266,17 @@ public class Board {
             return " ";
         }
         if (field.piece.isLight) {
-            return ANSI_CYAN + "w" + ANSI_RESET;
+            return field.piece instanceof Queen ? ANSI_CYAN + "W" + ANSI_RESET : ANSI_CYAN + "w" + ANSI_RESET;
         } else
-            return ANSI_YELLOW + "b" + ANSI_RESET;
+            return field.piece instanceof Queen ? ANSI_YELLOW + "B" + ANSI_RESET : ANSI_YELLOW + "b" + ANSI_RESET;
+    }
+
+    private void removePiece(Piece piece) {
+        if (piece.isLight) {
+            this.lightPieces.remove(piece);
+        } else {
+            this.darkPieces.remove(piece);
+        }
+        piece.field.clear();
     }
 }

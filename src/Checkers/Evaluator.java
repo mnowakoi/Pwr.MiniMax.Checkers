@@ -24,4 +24,21 @@ public class Evaluator implements IEvaluator {
         return evaluation;
         //return state.isLightTurn() ? state.board.lightPieces.size() : state.board.darkPieces.size();
     }
+
+    public int EvaluateColor(State state, boolean evaluateLight)
+    {
+        int evaluation = 0;
+        List<Piece> pieces = evaluateLight ? state.board.lightPieces : state.board.darkPieces;
+        for(Piece piece : pieces)
+        {
+            Field field = piece.field;
+            if (field.row == 0 || field.row == 7 || field.column == 0 || field.row == 7)
+            {
+                evaluation+=4;
+            }
+            else
+                evaluation+=2;
+        }
+        return evaluation;
+    }
 }
