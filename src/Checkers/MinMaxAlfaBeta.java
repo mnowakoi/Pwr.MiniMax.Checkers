@@ -1,6 +1,5 @@
 package Checkers;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -37,15 +36,26 @@ public class MinMaxAlfaBeta {
             return new EvaluatedMove(null, evaluator.EvaluateColor(parentState, evaluateLight));
         }
 
-        List<EvaluatedMove> evaluatedMoves = new ArrayList<>();
-        if(parentState.isLightTurn && evaluateLight)
+        long seed = System.nanoTime();
+        Collections.shuffle(movesAndStatesList, new Random(seed));
+
+        EvaluatedMove best =  findBestMoveMinMax(movesAndStatesList.get(0).state, counter + 1, alfa, beta, evaluateLight);
+        best.move = movesAndStatesList.get(0).move;
+        movesAndStatesList.remove(0);
+
+        if(counter % 2 == 0)
         {
             for (MoveAndState moveAndState : movesAndStatesList)
             {
                 EvaluatedMove betaCand = findBestMoveMinMax(moveAndState.state, counter + 1, alfa, beta, evaluateLight);
-                beta = betaCand.value < beta ? betaCand.value : beta;
-                if (alfa < beta)
-                    evaluatedMoves.add(findBestMoveMinMax(moveAndState.state, counter + 1, alfa, beta, evaluateLight));
+                if(betaCand.value < beta)
+                {
+                    beta = betaCand.value;
+                    best = betaCand;
+                    best.move = moveAndState.move;
+                }
+                if (alfa >= beta)
+                    return best;
             }
         }
         else
@@ -53,19 +63,18 @@ public class MinMaxAlfaBeta {
             for (MoveAndState moveAndState : movesAndStatesList)
             {
                 EvaluatedMove alfaCand = findBestMoveMinMax(moveAndState.state, counter + 1, alfa, beta, evaluateLight);
-                alfa = alfaCand.value > alfa ? alfaCand.value : alfa;
-                if (alfa < beta)
-                    evaluatedMoves.add(findBestMoveMinMax(moveAndState.state, counter + 1, alfa, beta, evaluateLight));
+                if(alfaCand.value > beta)
+                {
+                    beta = alfaCand.value;
+                    best = alfaCand;
+                    best.move = moveAndState.move;
+                }
+                if (alfa >= beta)
+                    return best;
             }
         }
-
-        long seed = System.nanoTime();
-        Collections.shuffle(evaluatedMoves, new Random(seed));
-
-         return counter % 2 == 0 ?
-           evaluatedMoves.stream().max((e1, e2) -> new Integer(e1.value).compareTo(e2.value)).get()
-           : evaluatedMoves.stream().min((e1, e2) -> new Integer(e1.value).compareTo(e2.value)).get();
-    }
+        return best;
+     }
 
     class EvaluatedMove
     {

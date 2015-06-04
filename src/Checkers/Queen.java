@@ -29,8 +29,8 @@ public class Queen extends Piece {
         List<Move> captures = new ArrayList<>();
 
         for (List<FieldPosition> trace : traces) {
-
-            Field currentField = new Field();
+            FieldPosition lastfield = trace.get(trace.size() - 1);
+            Field currentField = board.select(lastfield.row, lastfield.column);
             List<List<FieldPosition>> currentTraces = addNextCapture(board, new ArrayList<>(), board.select(currentField.row, currentField.column));
 
             if (trace.isEmpty()) {
@@ -41,13 +41,14 @@ public class Queen extends Piece {
             trace.remove(0);
 
             for (List<FieldPosition> currentTrace : currentTraces) {
-                List<FieldPosition> concatenatedTrace = new ArrayList<>(trace);
-                concatenatedTrace.addAll(currentTrace);
-
                 if (currentTrace.size() < 2)
                     continue;
 
-                Move move = new Move(source, trace, currentTrace.size());
+                currentTrace.remove(0);
+                List<FieldPosition> concatenatedTrace = new ArrayList<>(trace);
+                concatenatedTrace.addAll(currentTrace);
+
+                Move move = new Move(source, concatenatedTrace, currentTrace.size());
                 captures.add(move);
             }
 

@@ -19,8 +19,8 @@ public class Checkers {
         ChildStateGenerator stateGenerator = new ChildStateGenerator();
         minmax = new MinMax(stateGenerator, evaluator, 6);
         minmax2 = new MinMax(stateGenerator, evaluator, 6);
-        minMaxAlfaBeta = new MinMaxAlfaBeta(stateGenerator, evaluator, 6);
-        minMaxAlfaBeta2 = new MinMaxAlfaBeta(stateGenerator, evaluator, 6);
+        minMaxAlfaBeta = new MinMaxAlfaBeta(stateGenerator, evaluator, 5);
+        minMaxAlfaBeta2 = new MinMaxAlfaBeta(stateGenerator, evaluator, 5);
     }
 
     public void minMaxTwoComputers(State state) {
@@ -38,6 +38,12 @@ public class Checkers {
     public void minMaxOneComputer(State state) {
         this.moveCounter = 0;
         GameStatus status = this.minMaxOnePlayer(state, 0, state.board.lightPieces.size() + state.board.darkPieces.size());
+        printStatus(status);
+    }
+
+    public void minMaxAlfaBetaOneComputer(State state) {
+        this.moveCounter = 0;
+        GameStatus status = this.minMaxAlfaBetaOnePlayer(state, 0, state.board.lightPieces.size() + state.board.darkPieces.size());
         printStatus(status);
     }
 
@@ -79,7 +85,7 @@ public class Checkers {
             Board newBoard = state.board.makeMove(bestMove);
             newBoard.print();
 
-            return minMaxTwoComputersMode(new State(newBoard, !state.isLightTurn()), noChangesCounter, piecesCount);
+            return minMaxAlfaBetaTwoComputersMode(new State(newBoard, !state.isLightTurn()), noChangesCounter, piecesCount);
         }
 
         return getGameStatus(state);
@@ -129,6 +135,59 @@ public class Checkers {
                         Board newBoard = state.board.makeMove(move);
                         newBoard.print();
                         return minMaxOnePlayer(new State(newBoard, !state.isLightTurn()), noChangesCounter, piecesCount);
+                    } catch (Exception e) {
+                        System.out.println("Nielegalny ruch!");
+                    }
+                }
+            }
+        }
+        return getGameStatus(state);
+    }
+
+    private GameStatus minMaxAlfaBetaOnePlayer(State state, int noChangesCounter, int piecesCount) {
+        if (!state.isFinished() && noChangesCounter < 30) {
+            printCurrentState(state);
+
+            if ((state.board.lightPieces.size() + state.board.darkPieces.size()) == piecesCount) {
+                noChangesCounter++;
+            } else {
+                piecesCount = (state.board.lightPieces.size() + state.board.darkPieces.size());
+                noChangesCounter = 0;
+            }
+
+            if (state.isLightTurn) {
+                Move bestMove = minMaxAlfaBeta.findBestMove(state);
+
+                if (bestMove == null) return state.isLightTurn ? GameStatus.lightBlocked : GameStatus.darkBlocked;
+
+                Board newBoard = state.board.makeMove(bestMove);
+                newBoard.print();
+                return minMaxAlfaBetaOnePlayer(new State(newBoard, !state.isLightTurn()), noChangesCounter, piecesCount);
+            } else {
+                boolean isValid = false;
+
+                while (!isValid) {
+                    System.out.println("Podaj ruch w formacie wiersz/kolumna np. 01 21 23 poczynajac od pola na ktrym stoi pionek numerujac wszystkie pola na ktorych stanie pionek");
+                    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+                    ArrayList<FieldPosition> fieldPositions = new ArrayList<>();
+
+                    try {
+                        String fieldsList = br.readLine();
+                        String[] splited = fieldsList.split(" ");
+                        for (String position : splited) {
+                            String[] fieldPositionString = position.split("");
+                            FieldPosition fieldPosition = new FieldPosition(Integer.parseInt(fieldPositionString[0]), Integer.parseInt(fieldPositionString[1]));
+                            fieldPositions.add(fieldPosition);
+                        }
+                    } catch (Exception e) {
+                    }
+
+                    try {
+                        Move move = new Move(fieldPositions);
+                        Board newBoard = state.board.makeMove(move);
+                        newBoard.print();
+                        return minMaxAlfaBetaOnePlayer(new State(newBoard, !state.isLightTurn()), noChangesCounter, piecesCount);
                     } catch (Exception e) {
                         System.out.println("Nielegalny ruch!");
                     }
