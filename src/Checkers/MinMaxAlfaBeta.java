@@ -63,9 +63,9 @@ public class MinMaxAlfaBeta {
             for (MoveAndState moveAndState : movesAndStatesList)
             {
                 EvaluatedMove alfaCand = findBestMoveMinMax(moveAndState.state, counter + 1, alfa, beta, evaluateLight);
-                if(alfaCand.value > beta)
+                if(alfaCand.value > alfa)
                 {
-                    beta = alfaCand.value;
+                    alfa = alfaCand.value;
                     best = alfaCand;
                     best.move = moveAndState.move;
                 }
