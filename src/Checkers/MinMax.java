@@ -1,6 +1,8 @@
 package Checkers;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
@@ -30,15 +32,24 @@ public class MinMax {
         }
         List<MoveAndState> movesAndStatesList = stateGenerator.generateChildren(parentState);
 
+        if(movesAndStatesList.isEmpty())
+        {
+            return new EvaluatedMove(null, evaluator.Evaluate(parentState));
+        }
+
         List<EvaluatedMove> evaluatedMoves = movesAndStatesList.stream().map(moveAndState -> {
             EvaluatedMove res = findBestMoveMinMax(moveAndState.state, counter + 1);
             res.move = moveAndState.move;
             return res;
         }).collect(Collectors.toList());
 
-        return counter % 2 == 0 ?
-                evaluatedMoves.stream().max((e1, e2) -> new Integer(e1.value).compareTo(e2.value)).get()
-                : evaluatedMoves.stream().min((e1, e2) -> new Integer(e1.value).compareTo(e2.value)).get();
+
+        long seed = System.nanoTime();
+        Collections.shuffle(evaluatedMoves, new Random(seed));
+
+      //  return counter % 2 == 0 ?
+             return   evaluatedMoves.stream().max((e1, e2) -> new Integer(e1.value).compareTo(e2.value)).get();
+            //    : evaluatedMoves.stream().min((e1, e2) -> new Integer(e1.value).compareTo(e2.value)).get();
     }
 
     class EvaluatedMove

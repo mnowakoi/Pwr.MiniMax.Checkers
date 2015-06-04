@@ -3,10 +3,22 @@ package Checkers;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltMath.abs;
+
 /**
  * Created by Monis on 5/24/15.
  */
 public class Board {
+    String ANSI_RESET = "\u001B[0m";
+    String ANSI_BLACK = "\u001B[30m";
+    String ANSI_RED = "\u001B[31m";
+    String ANSI_GREEN = "\u001B[32m";
+    String ANSI_YELLOW = "\u001B[33m";
+    String ANSI_BLUE = "\u001B[34m";
+    String ANSI_PURPLE = "\u001B[35m";
+    String ANSI_CYAN = "\u001B[36m";
+    String ANSI_WHITE = "\u001B[37m";
+
     private final int boardSize = 8;
     List<Piece> lightPieces;
     List<Piece> darkPieces;
@@ -94,8 +106,11 @@ public class Board {
         Field fieldToCapture = this.select(field.row + 1, field.column + 1);
         if (fieldToCapture != null) {
             Piece capturePiece = fieldToCapture.piece;
-            if (capturePiece != null && !capturePiece.isLight) {
-                return select(piece.field.row + 2, piece.field.column + 2);
+            if (capturePiece != null && capturePiece.isLight != piece.isLight) {
+                Field f = select(field.row + 2, field.column + 2);
+
+                if (f != null && f.isEmpty())
+                    return f;
             }
         }
         return null;
@@ -105,8 +120,11 @@ public class Board {
         Field fieldToCapture = this.select(field.row + 1, field.column - 1);
         if (fieldToCapture != null) {
             Piece capturePiece = fieldToCapture.piece;
-            if (capturePiece != null && !capturePiece.isLight) {
-                return select(piece.field.row + 2, piece.field.column - 2);
+            if (capturePiece != null && capturePiece.isLight != piece.isLight) {
+                Field f = select(field.row + 2, field.column - 2);
+
+                if (f != null && f.isEmpty())
+                    return f;
             }
         }
         return null;
@@ -116,8 +134,11 @@ public class Board {
         Field fieldToCapture = this.select(field.row - 1, field.column - 1);
         if (fieldToCapture != null) {
             Piece capturePiece = fieldToCapture.piece;
-            if (capturePiece != null && !capturePiece.isLight) {
-                return select(piece.field.row - 2, piece.field.column - 2);
+            if (capturePiece != null && capturePiece.isLight != piece.isLight) {
+                Field f = select(field.row - 2, field.column - 2);
+
+                if (f != null && f.isEmpty())
+                    return f;
             }
         }
         return null;
@@ -127,8 +148,11 @@ public class Board {
         Field fieldToCapture = this.select(field.row - 1, field.column + 1);
         if (fieldToCapture != null) {
             Piece capturePiece = fieldToCapture.piece;
-            if (capturePiece != null && !capturePiece.isLight) {
-                return select(piece.field.row - 2, piece.field.column + 2);
+            if (capturePiece != null && capturePiece.isLight != piece.isLight) {
+                Field f = select(field.row - 2, field.column + 2);
+
+                if (f != null && f.isEmpty())
+                    return f;
             }
         }
         return null;
@@ -150,6 +174,22 @@ public class Board {
         }
     }
 
+    public Field selectUpperLeft(FieldPosition piece) {
+        return select(piece.row - 1, piece.column - 1);
+    }
+
+    public Field selectUpperRight(FieldPosition piece) {
+        return select(piece.row - 1, piece.column + 1);
+    }
+
+    public Field selectLowerLeft(FieldPosition piece) {
+        return select(piece.row + 1, piece.column - 1);
+    }
+
+    public Field selectLowerRight(FieldPosition piece) {
+        return select(piece.row + 1, piece.column + 1);
+    }
+
     public Board makeMove(Move move) {
         Board newBoard = new Board(this);
 
@@ -162,24 +202,40 @@ public class Board {
             targetField.piece = pieceToMove;
             pieceToMove.field = targetField;
         } else {
-
             for (FieldPosition fieldPosition : move.target) {
-                Field targetField = newBoard.board[fieldPosition.row][fieldPosition.column];
 
-                int rowOffset = (fieldPosition.row - startField.row) / 2;
-                int colOffset = (fieldPosition.column - startField.column) / 2;
+                int rowDiff = fieldPosition.row - startField.row;
+                if(abs(rowDiff) > 1)
+                {
+                    int rowOffset = (rowDiff) / 2;
+                    int colOffset = (fieldPosition.column - startField.column) / 2;
 
-                Field enemyField = newBoard.select(startField.row + rowOffset, startField.column + colOffset);
+                    Field enemyField = newBoard.select(startField.row + rowOffset, startField.column + colOffset);
 
-                assert (enemyField.piece.isLight != startField.piece.isLight);
+                    assert (enemyField.piece.isLight != pieceToMove.isLight);
 
-                newBoard.removePiece(enemyField.piece);
+                    newBoard.removePiece(enemyField.piece);
+                }
 
                 startField = newBoard.board[fieldPosition.row][fieldPosition.column];
             }
-
-            //start field is now stop field XD
             startField.occupyBy(pieceToMove);
+        }
+
+        if (pieceToMove.isLight && pieceToMove.field.row == 7)
+        {
+            Field field = pieceToMove.field;
+            Piece queen = new Queen(pieceToMove);
+            newBoard.removePiece(pieceToMove);
+            field.occupyBy(queen);
+            newBoard.lightPieces.add(queen);
+        } else if (!pieceToMove.isLight && pieceToMove.field.row == 0)
+        {
+            Field field = pieceToMove.field;
+            Piece queen = new Queen(pieceToMove);
+            newBoard.removePiece(pieceToMove);
+            field.occupyBy(queen);
+            newBoard.darkPieces.add(queen);
         }
 
         return newBoard;
@@ -209,12 +265,13 @@ public class Board {
     }
 
     private String getSymbolForField(Field field) {
+
         if (field.isEmpty()) {
-            return "_";
+            return " ";
         }
         if (field.piece.isLight) {
-            return "w";
+            return ANSI_CYAN + "w" + ANSI_RESET;
         } else
-            return "b";
+            return ANSI_YELLOW + "b" + ANSI_RESET;
     }
 }

@@ -23,6 +23,15 @@ public class Field {
         piece = null;
     }
 
+    @Override
+    public String toString() {
+        return "Field{" +
+                "row=" + row +
+                ", column=" + column +
+                ", piece=" + piece +
+                '}';
+    }
+
     public Field occupyBy(Piece pieceToMove) {
         this.piece = pieceToMove;
         pieceToMove.field = this;

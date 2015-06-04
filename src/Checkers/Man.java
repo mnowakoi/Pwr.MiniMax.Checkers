@@ -33,13 +33,12 @@ public class Man extends Piece {
 
         for(List<FieldPosition> trace : traces)
         {
-            FieldPosition source = trace.get(0);
-            trace.remove(0);
-
-            if (trace.size() == 0)
+            if (trace.size() < 2)
                 continue;
 
-            Move move = new Move(source, trace);
+            FieldPosition source = trace.get(0);
+            trace.remove(0);
+            Move move = new Move(source, trace, trace.size());
             moves.add(move);
         }
 
@@ -84,7 +83,7 @@ public class Man extends Piece {
     }
 
     private void checkAndAdd(List<FieldPosition> trace, List<Field> fieldsToProcess, Field upperLeft) {
-        if (upperLeft != null && trace.contains(upperLeft.getPosition()) ) {
+        if (upperLeft != null && !trace.contains(upperLeft.getPosition()) ) {
             fieldsToProcess.add(upperLeft);
         }
     }

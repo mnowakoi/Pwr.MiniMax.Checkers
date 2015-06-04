@@ -23,12 +23,19 @@ public class ChildStateGenerator implements IChildStateGenerator {
                 movesList.addAll(piece.findPossibleMoves(state.board).stream().collect(Collectors.toList()));
             }
         }
+        else
+        {
+            movesList.stream().max((e1, e2) -> new Integer(e1.deep).compareTo(e2.deep)).get();
+        }
 
         List<MoveAndState> children = new ArrayList<>();
-        for (Move move : movesList) {
-            Board newBoard = state.getBoard().makeMove(move);
-            State newState = new State(newBoard, !state.isLightTurn());
-            children.add(new MoveAndState(move, newState));
+
+        if(!movesList.isEmpty()) {
+            for (Move move : movesList) {
+                Board newBoard = state.getBoard().makeMove(move);
+                State newState = new State(newBoard, !state.isLightTurn());
+                children.add(new MoveAndState(move, newState));
+            }
         }
         return children;
     }

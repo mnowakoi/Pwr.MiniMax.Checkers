@@ -19,4 +19,8 @@ public class State {
     public boolean isLightTurn() {
         return isLightTurn;
     }
+
+    public boolean isFinished() {
+        return board.darkPieces.isEmpty() || board.lightPieces.isEmpty();
+    }
 }
