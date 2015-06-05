@@ -8,12 +8,12 @@ public class Main {
     public static void main(String[] args) {
         Board board = new Board();
         board.print();
-        State startState = new State(board, true);
+        State startState = new State(board, false);
 
         Checkers checkers = new Checkers();
         // checkers.minMaxTwoComputers(startState);
         //checkers.minMaxOneComputer(startState);
-        //checkers.minMaxAlfaBetaTwoComputers(startState);
-        checkers.minMaxAlfaBetaOneComputer(startState);
+        checkers.minMaxAlfaBetaTwoComputers(startState);
+        //checkers.minMaxAlfaBetaOneComputer(startState);
     }
 }

@@ -33,17 +33,14 @@ public class Queen extends Piece {
                 continue;
             }
 
-            boolean isDirectionCapture = false;
-
             FieldPosition lastfield = trace.get(trace.size() - 1);
-            Field currentField = board.select(lastfield.row, lastfield.column);
 
             if (trace.size() > 1)
             {
-                FieldPosition prevField = trace.get(trace.size() - 1);
+                FieldPosition prevField = trace.get(trace.size() - 2);
 
                 int rowOffset = - prevField.row + lastfield.row;
-                int colOffset = - prevField.column + lastfield.row;
+                int colOffset = - prevField.column + lastfield.column;
 
                 Field firstCapture = tryCapture(lastfield, rowOffset, colOffset, board);
 
@@ -53,25 +50,25 @@ public class Queen extends Piece {
                 }
                 else
                 {
-                    currentField = firstCapture;
-                    isDirectionCapture = true;
+                    trace.add(firstCapture.getPosition());
                 }
             }
 
-            List<List<FieldPosition>> currentTraces = addNextCapture(board, new ArrayList<>(), currentField);
 
-            FieldPosition source = trace.get(0);
-            trace.remove(0);
+            lastfield = trace.get(trace.size() - 1);
+            trace.remove(lastfield);
+            Field currentField = board.select(lastfield.row, lastfield.column);
+
+            List<List<FieldPosition>> currentTraces = addNextCapture(board, trace, currentField);
 
             for (List<FieldPosition> currentTrace : currentTraces) {
-                if (currentTrace.size() < 2 && !isDirectionCapture)
+                if (currentTrace.size() < 2)
                     continue;
 
+                FieldPosition source = currentTrace.get(0);
                 currentTrace.remove(0);
-                List<FieldPosition> concatenatedTrace = new ArrayList<>(trace);
-                concatenatedTrace.addAll(currentTrace);
 
-                Move move = new Move(source, concatenatedTrace, currentTrace.size());
+                Move move = new Move(source, currentTrace, currentTrace.size());
                 captures.add(move);
             }
 
