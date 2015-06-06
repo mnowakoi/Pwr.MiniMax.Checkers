@@ -36,9 +36,6 @@ public class MinMaxAlfaBeta {
             return new EvaluatedMove(null, evaluator.EvaluateColor(parentState, evaluateLight));
         }
 
-        long seed = System.nanoTime();
-        Collections.shuffle(movesAndStatesList, new Random(seed));
-
         EvaluatedMove best =  findBestMoveMinMax(movesAndStatesList.get(0).state, counter + 1, alfa, beta, evaluateLight);
         best.move = movesAndStatesList.get(0).move;
         movesAndStatesList.remove(0);

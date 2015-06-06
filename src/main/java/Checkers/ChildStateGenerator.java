@@ -1,7 +1,9 @@
 package Checkers;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
@@ -37,6 +39,8 @@ public class ChildStateGenerator implements IChildStateGenerator {
                 children.add(new MoveAndState(move, newState));
             }
         }
+        long seed = System.nanoTime();
+        Collections.shuffle(children, new Random(seed));
         return children;
     }
 }
