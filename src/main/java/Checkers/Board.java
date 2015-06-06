@@ -279,4 +279,28 @@ public class Board {
         }
         piece.field.clear();
     }
+
+    public void movePiece(int fromRow, int fromCol, int toRow, int toCol) {
+        Field field = this.select(fromRow, fromCol);
+        Piece piece = field.piece;
+        field.piece = null;
+        Field targetField = this.select(toRow, toCol);
+        piece.field = targetField;
+        targetField.piece = piece;
+    }
+
+    public void removePieceOnField(int row, int col) {
+        Field field = this.select(row, col);
+
+        if (field.piece.isLight)
+        {
+            this.lightPieces.remove(field.piece);
+        }
+        else
+        {
+            this.darkPieces.remove(field.piece);
+        }
+
+        field.piece = null;
+    }
 }

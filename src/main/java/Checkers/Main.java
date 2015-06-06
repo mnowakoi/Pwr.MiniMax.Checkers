@@ -11,9 +11,9 @@ public class Main {
         State startState = new State(board, false);
 
         Checkers checkers = new Checkers();
-        // checkers.minMaxTwoComputers(startState);
+         checkers.minMaxTwoComputers(startState);
         //checkers.minMaxOneComputer(startState);
-        checkers.minMaxAlfaBetaTwoComputers(startState);
+//        checkers.minMaxAlfaBetaTwoComputers(startState);
         //checkers.minMaxAlfaBetaOneComputer(startState);
     }
 }
