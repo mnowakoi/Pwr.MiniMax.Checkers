@@ -33,16 +33,16 @@ public class MinMaxTest {
         board.removePieceOnField(1, 2);
         board.removePieceOnField(1, 4);
         board.removePieceOnField(1, 6);
-        board.removePieceOnField(0,1);
-        board.removePieceOnField(0,3);
-        board.removePieceOnField(0,7);
-        board.removePieceOnField(2,1);
-        board.removePieceOnField(2,5);
-        board.removePieceOnField(2,7);
+        board.removePieceOnField(0, 1);
+        board.removePieceOnField(0, 3);
+        board.removePieceOnField(0, 7);
+        board.removePieceOnField(2, 1);
+        board.removePieceOnField(2, 5);
+        board.removePieceOnField(2, 7);
 
-        board.movePiece(5,4, 4, 3);
-        board.movePiece(5,2, 4, 1);
-        board.movePiece(5,6, 4, 5);
+        board.movePiece(5, 4, 4, 3);
+        board.movePiece(5, 2, 4, 1);
+        board.movePiece(5, 6, 4, 5);
 
         board.print();
 
